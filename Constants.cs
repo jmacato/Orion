@@ -5,6 +5,12 @@ namespace Orion
     public class Constants
     {
 
+        public enum InterruptDevicesEnum
+        {
+            KEYBOARD = 0xBEEF,
+            DISPLAY = 0xFADE,
+        }
+
         [FlagsAttribute]
         public enum SPFlagMasks
         {
@@ -16,6 +22,14 @@ namespace Orion
             NQ = 0b0010_0000,   //Not Equal Flag
             LT = 0b0100_0000,   //Less Than Flag
             GT = 0b1000_0000    //Greater Than Flag
+        }
+
+        [FlagsAttribute]
+        public enum InterrupFlagEnum
+        {
+            DR = 0b0000_0001,   //Device Ready
+            OF = 0b0000_0010,   //Device Read Available
+            PF = 0b0000_0100,   //Device Write Available
         }
 
         public enum Opcodes
@@ -33,6 +47,7 @@ namespace Orion
             JGT,        //Jump if GT (Greater Than) flag is set (JUMP [Program Address])
             JLT,        //Jump if LT (Less Than) flag is set (JUMP [Program Address])
             INTR,       // Read Interrupt (INTR [Interrupt Address])
+            INTW,       // Write Interrupt (INTW [Interrupt Address])
             INTH,       // Set Interrupt Handler (INTH [Interrupt Address] [Program Address])
         }
 
@@ -74,7 +89,7 @@ namespace Orion
 
             Int16 IAR;    //Interrupt Address Register
             Int16 IDR;    //Interrupt Data Register
-            byte IDA;     //Interrupt Data Available
+            byte IDA;     //Interrupt Flags
 
             Int16 RHR;    //Result Hold Register
 
