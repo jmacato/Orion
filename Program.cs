@@ -16,35 +16,29 @@ namespace Orion
 {
 
 
-    public List<(Opcodes, short, short, short)> SampleProgram = new List<(Opcodes, short, short, short)>();
 
     class Program
     {
+
+        public static List<(Opcodes, short, short, short)> SampleProgram 
+        = new List<(Opcodes, short, short, short)>() {
+            (Opcodes.LOAD,0x1,0x0,0x0), //01 : LOAD R1 0
+            (Opcodes.LOAD,0x2,0x1,0x0), //02 : LOAD R2 1
+            (Opcodes.LOAD,0x4,010,0x0), //03 : LOAD R4 17
+            (Opcodes.ADD ,0x1,0x2,0x3), //04 : ADD  R1 R2 R3
+            (Opcodes.CMP ,0x3,0x4,0x0), //05 : CMP  R3 R4
+            (Opcodes.JEQ ,0x8,0x0,0x0), //06 : JEQ  8
+            (Opcodes.JUMP,0x4,0x0,0x0), //07 : JUMP 4 
+            (Opcodes.HALT,0x0,0x0,0x0), //08 : HALT
+        };
+
         static void Main(string[] args)
         {
             Console.WriteLine("Orion Machine Code Emulator");
             Console.WriteLine("Copyright © 2017 Jumar Macato");
-
-            if (args.Count() > 0)
-            {
-                var Args = args[0];
-                var Args2 = args[1];
-
-                switch (Args)
-                {
-                    case "open":
-                        break;
-                    default:
-
-                        Console.WriteLine("Invalid Argument: " + String.Join(" ", args.ToList()));
-                        break;
-                }
-
-            }
-
-            var exec = new Orion.ExecutionUnit();
-            exec.ExecuteInstruction(Orion.Constants.Opcodes.ADD, 0, 0, 0);
-            Console.ReadKey();
+            var Core = new Orion.Core(SampleProgram);
+            Core.Run();
+            Console.Read();
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Orion
 {
     public class Constants
     {
-
+        public static TimeSpan GlobalTickDurSpan = new TimeSpan(0, 0, 1);
         public enum InterruptDevicesEnum
         {
             KEYBOARD = 0xBEEF,
@@ -53,28 +53,30 @@ namespace Orion
             HALT        // Stop Execution
         }
 
-        public struct Registers
+        public class Registers
         {
             //  General Purpose Registers R1~R32
-            Int16 R1, R2, R3, R4, R5, R6, R7, R8,
+            public Int16 R1, R2, R3, R4, R5, R6, R7, R8,
                   R9, R10, R11, R12, R13, R14, R15,
                   R16, R17, R18, R19, R20, R21, R22,
                   R23, R24, R25, R26, R27, R28, R29,
                   R30, R31, R32;
-            Int16 IAR;    // Interrupt Address Register
-            Int16 IDR;    // Interrupt Data Register
-            byte IDA;     // Interrupt Flags
+            public Int16 IAR;    // Interrupt Address Register
+            public Int16 IDR;    // Interrupt Data Register
+            public byte IDA;     // Interrupt Flags
 
-            Int16 RHR;    // Result Hold Register
-            Int16 CHR;    // Last Call/Jump Address Hold Register
+            public Int16 RHR;    // Result Hold Register
+            public Int16 CHR;    // Last Call/Jump Address Hold Register
 
-            Int16 MAR;    // Memory Address Register
-            Int16 MBR;    // Memory Data Register
+            public Int16 MAR;    // Memory Address Register
+            public Int16 MBR;    // Memory Data Register
 
-            Int16 PC;     // Program Counter
-            Int16 IR;     // Instruction Register
+            public Int16 PC;     // Program Counter
+            public Int16 IR;     // Instruction Register
 
-            byte SR;      // Status Register
+            public byte SR;      // Status Register
+
+            public bool HALT;    // Halt Bit
         }
     }
 }
