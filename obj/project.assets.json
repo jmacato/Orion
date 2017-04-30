@@ -2155,6 +2155,20 @@
           "ref/netstandard1.2/System.Threading.Timer.dll": {}
         }
       },
+      "System.ValueTuple/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.ValueTuple.dll": {}
+        }
+      },
       "System.Xml.ReaderWriter/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6819,6 +6833,21 @@
         "system.threading.timer.nuspec"
       ]
     },
+    "System.ValueTuple/4.3.0": {
+      "sha512": "cNLEvBX3d6MMQRZe3SMFNukVbitDAEpVZO17qa0/2FHxZ7Y7PpFRpr6m2615XYM/tYYYf0B+WyHNujqIw8Luwg==",
+      "type": "package",
+      "path": "system.valuetuple/4.3.0",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/netstandard1.0/.xml",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/.xml",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "system.valuetuple.4.3.0.nupkg.sha512",
+        "system.valuetuple.nuspec"
+      ]
+    },
     "System.Xml.ReaderWriter/4.3.0": {
       "sha512": "dKgYOqpnUVW2FGDDdN0aMW0U/MWZ97lwxQ8Ahftn/kOKx2sfd9gKr9630nu2pCvdpBjonliWi4EeqUGMpQRqhQ==",
       "type": "package",
@@ -7071,7 +7100,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
-      "Microsoft.NETCore.App >= 1.1.1"
+      "Microsoft.NETCore.App >= 1.1.1",
+      "System.ValueTuple >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -7080,16 +7110,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
+      "projectUniqueName": "c:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
       "projectName": "Orion",
-      "projectPath": "C:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
-      "outputPath": "C:\\Users\\Jumar\\Desktop\\Orion\\obj\\",
+      "projectPath": "c:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
+      "outputPath": "c:\\Users\\Jumar\\Desktop\\Orion\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Orion.dll": "C:\\Users\\Jumar\\Desktop\\Orion\\bin\\placeholder\\netcoreapp1.1\\Orion.dll"
+        "lib/netcoreapp1.1/Orion.dll": "c:\\Users\\Jumar\\Desktop\\Orion\\bin\\placeholder\\netcoreapp1.1\\Orion.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
@@ -7103,6 +7133,10 @@
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "1.1.1"
+          },
+          "System.ValueTuple": {
+            "target": "Package",
+            "version": "4.3.0"
           }
         }
       }

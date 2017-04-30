@@ -1,6 +1,6 @@
 namespace Orion
 {
-    public class CPUMem
+    public class Core
     {
         
     }
