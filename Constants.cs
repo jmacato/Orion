@@ -14,14 +14,14 @@ namespace Orion
         [FlagsAttribute]
         public enum SPFlagMasks
         {
-            CF = 0b0000_0001,   // Carry Flag
-            OF = 0b0000_0010,   // Overflow Flag
-            PF = 0b0000_0100,   // Parity Flag
-            NF = 0b0000_1000,   // Negative Flag
-            EQ = 0b0001_0000,   // Equal Flag
-            NQ = 0b0010_0000,   // Not Equal Flag
-            LT = 0b0100_0000,   // Less Than Flag
-            GT = 0b1000_0000    // Greater Than Flag
+            CF = 0b00000001,   // Carry Flag
+            OF = 0b00000010,   // Overflow Flag
+            PF = 0b00000100,   // Parity Flag
+            NF = 0b00001000,   // Negative Flag
+            EQ = 0b00010000,   // Equal Flag
+            NQ = 0b00100000,   // Not Equal Flag
+            LT = 0b01000000,   // Less Than Flag
+            GT = 0b10000000    // Greater Than Flag
         }
 
         [FlagsAttribute]
@@ -53,30 +53,34 @@ namespace Orion
             HALT        // Stop Execution
         }
 
-        public class Registers
+        public enum RegistersEnum
         {
             //  General Purpose Registers R1~R32
-            public Int16 R1, R2, R3, R4, R5, R6, R7, R8,
-                  R9, R10, R11, R12, R13, R14, R15,
-                  R16, R17, R18, R19, R20, R21, R22,
-                  R23, R24, R25, R26, R27, R28, R29,
-                  R30, R31, R32;
-            public Int16 IAR;    // Interrupt Address Register
-            public Int16 IDR;    // Interrupt Data Register
-            public byte IDA;     // Interrupt Flags
+            R1 = 0x1, R2, R3, R4, R5, R6, R7, R8,
+            R9, R10, R11, R12, R13, R14, R15,
+            R16, R17, R18, R19, R20, R21, R22,
+            R23, R24, R25, R26, R27, R28, R29,
+            R30, R31, R32,
+            
+            IAR,    // Interrupt Address Register
+            IDR,    // Interrupt Data Register
+            IDA,     // Interrupt Flags
 
-            public Int16 RHR;    // Result Hold Register
-            public Int16 CHR;    // Last Call/Jump Address Hold Register
+            RHR,    // Result Hold Register
+            CHR,    // Last Call/Jump Address Hold Register
 
-            public Int16 MAR;    // Memory Address Register
-            public Int16 MBR;    // Memory Data Register
+            MAR,    // Memory Address Register
+            MBR,    // Memory Data Register
 
-            public Int16 PC;     // Program Counter
-            public Int16 IR;     // Instruction Register
+            PC,     // Program Counter
+            IR,     // Instruction Register
 
-            public byte SR;      // Status Register
+            SR,      // Status Register
 
-            public bool HALT;    // Halt Bit
+            HALT,    // Halt Bit
         }
+
+   
     }
+
 }

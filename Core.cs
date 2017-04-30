@@ -18,14 +18,14 @@ namespace Orion
         public Core(List<(Constants.Opcodes, short, short, short)> Program)
         {
             this.Program = Program;
-            this.CurrentRegisterMem = new Constants.Registers();
+            this.CurrentRegisterMem = new Registers();
             this.EU = new ExecutionUnit(ref CurrentRegisterMem);
         }
 
         public void Run(){
             var IsHalt = false;
             while(!IsHalt){
-                IsHalt = Step();
+                IsHalt = !Step();
                 Thread.Sleep(GlobalTickDurSpan);
             }
         }
@@ -35,7 +35,7 @@ namespace Orion
             var CurrentPC = CurrentRegisterMem.PC;
             var Instr = Program[CurrentPC];
             EU.ExecuteInstruction(Instr.Item1, Instr.Item2, Instr.Item3, Instr.Item4);
-            if (CurrentRegisterMem.HALT) return true; else return false;
+            if (!CurrentRegisterMem.HALT) return true; else return false;
         }
     }
 }

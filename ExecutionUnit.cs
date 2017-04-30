@@ -156,6 +156,12 @@ namespace Orion
         private void Execute_LOAD(short arg1, short arg2, short arg3)
         {
             Debug.WriteLine($"{arg1} {arg2} {arg3}");
+
+            var A1 = Enum.GetName(typeof(RegistersEnum), arg1);
+            var A2 = arg2;
+
+            currentRegisterMem.Set(A1,A2);
+
         }
     }
 }
