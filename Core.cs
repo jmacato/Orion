@@ -1,27 +1,42 @@
-using System.Collections.Generic;
+/**************************************
+
+    Orion Machine Code Emulator
+    Main Program CPU Core
+    Copyright © 2017 Jumar Macato
+    
+ **************************************/
+
 using System.Threading;
+using System.Collections.Generic;
 using static Orion.Constants;
 
 namespace Orion
 {
     public class Core
     {
-        //Contains the raw program code to be executed
+        /// <summary>Contains the raw program code to be executed</summary> 
         private List<(Constants.Opcodes, short, short, short)> Program;
 
-        //Contains active registers
+        /// <summary>Contains active registers</summary> 
         public Registers CurrentRegisterMem;
 
-        //Current Execution Unit
+        /// <summary>Current Execution Unit</summary> 
         private ExecutionUnit EU;
 
+        /// <summary>
+        /// Initialize core.
+        /// </summary>
+        /// <param name="Program">Program to be run.</param>
         public Core(List<(Constants.Opcodes, short, short, short)> Program)
         {
             this.Program = Program;
             this.CurrentRegisterMem = new Registers();
             this.EU = new ExecutionUnit(ref CurrentRegisterMem);
         }
-
+        
+        /// <summary>
+        /// Run the program.
+        /// </summary>
         public void Run(){
             var IsHalt = false;
             while(!IsHalt){
@@ -30,6 +45,13 @@ namespace Orion
             }
         }
 
+        /// <summary>
+        /// Step onto next instruction cycle.
+        /// </summary>
+        /// <returns>
+        /// Returns if the current program can continue execution on
+        /// next instruction cycle.
+        /// </returns>
         public bool Step()
         {
             var CurrentPC = CurrentRegisterMem.PC;

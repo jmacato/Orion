@@ -1,5 +1,13 @@
+/**************************************
+
+    Orion Machine Code Emulator
+    Instruction Execution Unit + ALU
+    Copyright © 2017 Jumar Macato
+    
+ **************************************/
+
+
 using System;
-using System.Diagnostics;
 using static Orion.Constants;
 
 namespace Orion
@@ -14,9 +22,8 @@ namespace Orion
         }
         public void ExecuteInstruction(Opcodes Instruction, Int16 arg1, Int16 arg2, Int16 arg3)
         {
-            Debug.Write($"{Instruction} ");
-
-            Debug.WriteLine($"{arg1} {arg2} {arg3}");
+            Console.Write($"{Instruction} ");
+            Console.WriteLine($"{arg1} {arg2} {arg3}");
 
             switch (Instruction)
             {
@@ -109,7 +116,7 @@ namespace Orion
                     CurrentRegisters.Set("LT", true);
                     break;
                 default:
-                    //Scream
+                    /// <summary>Scream </summary>
                     break;
             }
         }
@@ -226,7 +233,7 @@ namespace Orion
             }
             catch (OverflowException e)
             {
-                //Overflowed
+                /// <summary>Overflowed </summary>
                 CurrentRegisters.OF = true;
             }
             catch (Exception e)
@@ -234,13 +241,13 @@ namespace Orion
                 throw e;
             }
 
-            //If Result is negative int, set Negative Flag 
+            /// <summary>If Result is negative int, set Negative Flag  </summary>
             if (RX < 0) CurrentRegisters.NF = true;
 
-            //If Result is Odd, set Parity Flag
+            /// <summary>If Result is Odd, set Parity Flag </summary>
             if (RX % 2 != 0) CurrentRegisters.PF = true;
 
-            //If Argument3 is not zero, tranfer answer to corresponding register in the arg.
+            /// <summary>If Argument3 is not zero, tranfer answer to corresponding register in the arg. </summary>
             if (arg3 != 0)
             {
                 var A3 = Enum.GetName(typeof(RegistersEnum), arg3);
@@ -283,7 +290,7 @@ namespace Orion
             }
             catch (OverflowException e)
             {
-                //Overflowed
+                /// <summary>Overflowed </summary>
                 CurrentRegisters.OF = true;
             }
             catch (Exception e)
@@ -291,13 +298,13 @@ namespace Orion
                 throw e;
             }
 
-            //If Result is negative int, set Negative Flag 
+            /// <summary>If Result is negative int, set Negative Flag  </summary>
             if (RX < 0) CurrentRegisters.NF = true;
 
-            //If Result is Odd, set Parity Flag
+            /// <summary>If Result is Odd, set Parity Flag </summary>
             if (RX % 2 != 0) CurrentRegisters.PF = true;
 
-            //If Argument3 is not zero, tranfer answer to corresponding register in the arg.
+            /// <summary>If Argument3 is not zero, tranfer answer to corresponding register in the arg. </summary>
             if (arg3 != 0)
             {
                 var A3 = Enum.GetName(typeof(RegistersEnum), arg3);

@@ -7110,17 +7110,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
+      "projectUniqueName": "C:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
       "projectName": "Orion",
-      "projectPath": "c:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
-      "outputPath": "c:\\Users\\Jumar\\Desktop\\Orion\\obj\\",
+      "projectPath": "C:\\Users\\Jumar\\Desktop\\Orion\\Orion.csproj",
+      "outputPath": "C:\\Users\\Jumar\\Desktop\\Orion\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
-      "files": {
-        "lib/netcoreapp1.1/Orion.dll": "c:\\Users\\Jumar\\Desktop\\Orion\\bin\\placeholder\\netcoreapp1.1\\Orion.dll"
-      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}
@@ -7130,13 +7127,14 @@
     "frameworks": {
       "netcoreapp1.1": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "1.1.1"
-          },
           "System.ValueTuple": {
             "target": "Package",
             "version": "4.3.0"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "1.1.1",
+            "autoReferenced": true
           }
         }
       }

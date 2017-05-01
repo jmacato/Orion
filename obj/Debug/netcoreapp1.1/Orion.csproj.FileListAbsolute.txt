@@ -6,3 +6,4 @@ c:\Users\Jumar\Desktop\Orion\bin\Debug\netcoreapp1.1\Orion.pdb
 c:\Users\Jumar\Desktop\Orion\obj\Debug\netcoreapp1.1\Orion.AssemblyInfo.cs
 c:\Users\Jumar\Desktop\Orion\obj\Debug\netcoreapp1.1\Orion.dll
 c:\Users\Jumar\Desktop\Orion\obj\Debug\netcoreapp1.1\Orion.pdb
+C:\Users\Jumar\Desktop\Orion\obj\Debug\netcoreapp1.1\Orion.csprojResolveAssemblyReference.cache
