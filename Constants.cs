@@ -4,24 +4,11 @@ namespace Orion
 {
     public class Constants
     {
-        public static TimeSpan GlobalTickDurSpan = new TimeSpan(0, 0, 1);
+        public static TimeSpan GlobalTickDurSpan = new TimeSpan(0, 0, 0,0,0);
         public enum InterruptDevicesEnum
         {
             KEYBOARD = 0xBEEF,
             DISPLAY = 0xFADE,
-        }
-
-        [FlagsAttribute]
-        public enum SPFlagMasks
-        {
-            CF = 0b00000001,   // Carry Flag
-            OF = 0b00000010,   // Overflow Flag
-            PF = 0b00000100,   // Parity Flag
-            NF = 0b00001000,   // Negative Flag
-            EQ = 0b00010000,   // Equal Flag
-            NQ = 0b00100000,   // Not Equal Flag
-            LT = 0b01000000,   // Less Than Flag
-            GT = 0b10000000    // Greater Than Flag
         }
 
         [FlagsAttribute]
@@ -43,6 +30,7 @@ namespace Orion
             COPY,       // Copy src reg to dest (COPY [SRC] [DEST])
             CMP,        // Compare Two Registers (CMP [A] [B])
             JUMP,       // Jump unconditionally to program address (JUMP [Program Address])
+            JREG,       // Jump unconditionally to program address specified in the register (JUMP [Register])
             JNE,        // Jump if NQ (Not Equal) flag is set (JNE [Program Address])
             JEQ,        // Jump if EQ (Equal) flag is set (JEQ [Program Address])
             JGT,        // Jump if GT (Greater Than) flag is set (JUMP [Program Address])
@@ -61,7 +49,7 @@ namespace Orion
             R16, R17, R18, R19, R20, R21, R22,
             R23, R24, R25, R26, R27, R28, R29,
             R30, R31, R32,
-            
+
             IAR,    // Interrupt Address Register
             IDR,    // Interrupt Data Register
             IDA,     // Interrupt Flags
@@ -78,9 +66,18 @@ namespace Orion
             SR,      // Status Register
 
             HALT,    // Halt Bit
+
+            CF,   // Carry Flag
+            OF,   // Overflow Flag
+            PF,   // Parity Flag
+            NF,   // Negative Flag
+            EQ,   // Equal Flag
+            NQ,   // Not Equal Flag
+            LT,   // Less Than Flag
+            GT // Greater Than Flag
         }
 
-   
+
     }
 
 }

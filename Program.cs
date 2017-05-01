@@ -22,14 +22,14 @@ namespace Orion
 
         public static List<(Opcodes, short, short, short)> SampleProgram 
         = new List<(Opcodes, short, short, short)>() {
-            (Opcodes.LOAD,0x1,0x0,0x0), //01 : LOAD R1 0
-            (Opcodes.LOAD,0x2,0x1,0x0), //02 : LOAD R2 1
-            (Opcodes.LOAD,0x4,010,0x0), //03 : LOAD R4 17
-            (Opcodes.ADD ,0x1,0x2,0x3), //04 : ADD  R1 R2 R3
-            (Opcodes.CMP ,0x3,0x4,0x0), //05 : CMP  R3 R4
-            (Opcodes.JEQ ,0x8,0x0,0x0), //06 : JEQ  8
-            (Opcodes.JUMP,0x4,0x0,0x0), //07 : JUMP 4 
-            (Opcodes.HALT,0x0,0x0,0x0), //08 : HALT
+            (Opcodes.LOAD,0x1,0x0,0x0), //00 : LOAD R1 0
+            (Opcodes.LOAD,0x2,0x1,0x0), //01 : LOAD R2 1
+            (Opcodes.LOAD,0x4,010,0x0), //02 : LOAD R4 17
+            (Opcodes.ADD ,0x1,0x2,0x1), //03 : ADD  R1 R2 R1
+            (Opcodes.CMP ,0x1,0x4,0x0), //04 : CMP  R1 R4
+            (Opcodes.JEQ ,0x7,0x0,0x0), //05 : JEQ  7
+            (Opcodes.JUMP,0x3,0x0,0x0), //06 : JUMP 3 
+            (Opcodes.HALT,0x0,0x0,0x0), //07 : HALT
         };
 
         static void Main(string[] args)

@@ -18,6 +18,7 @@ namespace Orion
         public byte IDA;     // Interrupt Flags
 
         public Int16 RHR;    // Result Hold Register
+        public Int16 REM;    // Last Division Remainder Register
         public Int16 CHR;    // Last Call/Jump Address Hold Register
 
         public Int16 MAR;    // Memory Address Register
@@ -30,16 +31,48 @@ namespace Orion
 
         public bool HALT;    // Halt Bit
 
+        public bool CF;   // Carry Flag
+        public bool OF;   // Overflow Flag
+        public bool PF;   // Parity Flag
+        public bool NF;   // Negative Flag
+        public bool EQ;   // Equal Flag
+        public bool NQ = true;   // Not Equal Flag
+        public bool LT;   // Less Than Flag
+        public bool GT; // Greater Than Flag
+
+        // Dynamically get all properties of this class
         List<FieldInfo> CurFieldInfo = typeof(Registers).GetFields().ToList();
+
+        // Get Register value
+        public dynamic Get(string RegisterName)
+        {
+            if (CurFieldInfo.Where(p => p.Name == RegisterName).Any())
+            {
+                //Get FieldInfo of the matching register string
+                FieldInfo x = CurFieldInfo
+                              .Where(p => p.Name == RegisterName)
+                              .First();
+
+                return x.GetValue(this);
+            }
+            else
+            {
+                throw new InvalidProgramException($"Can't find Register {RegisterName}.");
+            }
+        }
+
+        // Set Register by name
         public void Set(string RegisterName, object value)
         {
             if (CurFieldInfo.Where(p => p.Name == RegisterName).Any())
             {
-                 FieldInfo x = CurFieldInfo.Where(p => p.Name == RegisterName).First();
-/*
-                Type type = this.GetType();
-                PropertyInfo prop = type.GetProperty(RegisterName);
-*/
+
+                //Get FieldInfo of the matching register string
+                FieldInfo x = CurFieldInfo
+                              .Where(p => p.Name == RegisterName)
+                              .First();
+
+                //Pattern Match the value 
                 switch (value)
                 {
                     case Int16 o:
@@ -50,7 +83,6 @@ namespace Orion
                         break;
                     case byte o:
                         x.SetValue(this, o);
-
                         break;
                     default:
                         throw new InvalidCastException($"Can't set value \"{value}\" into Register {RegisterName}.");
